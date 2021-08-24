@@ -31,7 +31,7 @@ If you are a **Mac OS** user:
 For other operating systems, see [Rstudio guide](https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites) for necessary tools.
 
 ## Part 3: Git installation
-* Install [git](https://git-scm.com). If you use Windows, use [git for Windows](https://gitforwindows.org). In your terminal, configure Git to recognize you. Please use your TAMU email if possible.
+* Install [git](https://git-scm.com). If you use Windows, use [git for Windows](https://gitforwindows.org). In your terminal (Mac OS) or bash (installed with git for Windows), configure Git to recognize you. Please use your TAMU email if possible.
 
 `git config user.name “First Last"`
 
@@ -70,11 +70,26 @@ To practice using Git and basic commits, create a separate commit for the follow
 
 We will next practice using Git/Github together by writing a simple R code in relation to linear model. You are asked to complete the following R scripts:
 
-1. **FunctionsLM.R** contains sceletons for 4 simple functions associated with fitting linear model. Follow the instructions given in comments to fill all the functions. As you work through the functions, follow **good testing practices** by testing your functions first on simple toy examples created on your own, and **good commit practices** by commiting each logical change after succesful test. Make sure that the R file only contains the functions, nothing else. **do not use any external libraries or functions such as lm** and do not erase any of the comments.
+1. **FunctionsLM.R** contains skeletons for 4 simple functions associated with fitting linear model. Follow the instructions given in comments to fill all the functions. As you work through the functions, follow **good testing practices** by testing your functions first on simple toy examples created on your own, and **good commit practices** by committing each logical change after successful test. Make sure that the R file only contains the functions, nothing else. **do not use any external libraries or functions such as lm** and do not erase any of the comments.
+
+**Things to keep in mind:** R has several ways to store vectors: (a) as a vector type in R; (b) as a column-vector, that is matrix type in R with 1 column; (c) as a row-vector, that is matrix type in R with 1 row. As we will often cross-compare the code with linear algebra deviations, by vector we will mean a column vector stored as either (a) or (b). Your code should be **agnostic** to whether the vector input is supplied as (a) or (b). If you use operations that work differently depending on the type, make sure you have corresponding transformations built into your functions. For example
+```r
+x_a = c(1, 2, 3) # this is vector type
+x_b = matrix(c(1, 2, 3), 3, 1) # this is the same vector stored as matrix
+# sum works the same regardless
+sum(x_a)
+sum(x_b)
+# matrix multiplication does not
+x_a %*% x_a # gives inner-product, not recommended due to confusing syntax
+x_b %*% x_b # gives error as incompatible dimensions (as one would expect)
+# transform into specific type
+as.vector(x_b) # goes from (b) to (a)
+as.matrix(x_a) # goes from (a) to (b)
+```
 
 2. **SimpleProgram.R** is a script that illustrates the use of functions in 1. First, it creates training data $(X, Y)$ based on given model parameters, calculates least-squares vector of coefficients and evaluates estimation error. Secondly, it creates testing data $(Xtest, Ytest)$ and evaluates prediction error using (a) all covariates; (b) using only the first covariate. The missing parts of the code are indicated by [ToDo], **do not use any external libraries or functions such as lm** and do not erase any of the comments. Make sure to make consistent commits throughout and push your changes to GitHub in the end.
 
-3. **Tests.R**. As you work through the functions in 1., you undoubtedly would want to test them on some toy examples, or perhaps compare a couple of versions. Perhaps you want to make modification to 2 and see how results are affected. This .R file is designed to save you corresponding work, and to make sure that the tests are separate from functions. **You are allowed to use any external libraries  or functins that you would like for testing and debugging your code here**
+3. **Tests.R**. As you work through the functions in 1., you undoubtedly would want to test them on some toy examples, or perhaps compare a couple of versions. Perhaps you want to make modification to 2 and see how results are affected. This .R file is designed to save you corresponding work, and to make sure that the tests are separate from functions. **You are allowed to use any external libraries  or functions that you would like for testing and debugging your code here**
 
 
 ## Grading
