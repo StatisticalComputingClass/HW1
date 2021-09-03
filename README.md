@@ -33,7 +33,7 @@ For other operating systems, see [Rstudio guide](https://support.rstudio.com/hc/
 ## Part 3: Git installation
 * Install [git](https://git-scm.com). If you use Windows, use [git for Windows](https://gitforwindows.org). In your terminal (Mac OS) or bash (installed with git for Windows), configure Git to recognize you. Please use your TAMU email if possible.
 
-`git config user.name “First Last"`
+`git config --global user.name “First Last"`
 
 `git config --global user.email "email@example.com"`
 
