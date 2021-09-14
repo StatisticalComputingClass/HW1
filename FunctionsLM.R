@@ -11,6 +11,7 @@ generateY <- function(X, beta, sigma, seed = 5832652){
 }
 
 # Calculate beta_LS - least-squares solution, do not use lm function
+# You can assume that X has full rank, so X'X inverse exists
 # X - design matrix, rows are n samples
 # Y - response vector (could be a vector or a matrix with 1 column)
 calculateBeta <- function(X, Y){
