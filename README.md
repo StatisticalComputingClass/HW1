@@ -27,6 +27,7 @@ If you are a **Mac OS** user:
 
 * Install [Xcode](http://itunes.apple.com/us/app/xcode/id497799835?mt=12). Within XCode go to Preferences: Downloads and install the Command Line Tools.
 * Install [MacTex LaTeX](http://www.tug.org/mactex/downloading.html)
+* Install [gfortran](https://gcc.gnu.org/wiki/GFortranBinariesMacOS) (You will not need it until HW5 so you can wait on this step if you prefer)
 
 For other operating systems, see [Rstudio guide](https://support.rstudio.com/hc/en-us/articles/200486498-Package-Development-Prerequisites) for necessary tools.
 
@@ -46,11 +47,13 @@ For other operating systems, see [Rstudio guide](https://support.rstudio.com/hc/
 
 * Accept the link to HW1 assignment - this will automatically create a GitHub repository for your personal work on the homework. **Star** the repository to easier find it later.
 
+* Create Github personal access token to help with authentication on your local machine. A token on Github is something that is going to be used as password when you try to use Github locally with your GitHub user name. See [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token) for short instructions on how to create it and set it up. Make sure you have granted ‘full control’ access rights to your Personal Access Token (repo option checked including all suboptions).
+
 * Clone your HW1 repository locally using 
 
 `git clone https://github.com/your_HW1_repository_path`
 
-You can copy the path directly by clicking on **Code** item in Github
+You can copy the path directly by clicking on **Code** item in Github. At this point, you will likely be asked to provide you personal access token (see above). It will act as password with your user name. It should be that on both Mac OS and Windows your credentials with personal access token will be saved after the first time you were prompted to enter them. To be on the safe side, once you have your credentials put in on Terminal/Bash as a result of say git clone, close everything, restart Rstudio and Terminal/Bash and see if it still asks you for credentials repeatedly.  If you are not longer asked for credentials - you are set! If you are, I recommend to carefully read troubleshooting advice (see below in the end of Part 5)
 
 * Use Rstudio to open the project associated with the HW1 local directory. You should see the Git tab appear next to Environment and History consoles which will enable you to do staging, commits, pulls and pushes from within Rstudio. You will make all the changes locally, and only then push them to Github. If you do not see the Git tab, see [Rstudio version control](https://support.rstudio.com/hc/en-us/articles/200532077?version=1.1.463&mode=desktop) for further help. You may have to restart Rstudio to see the changes.
 
@@ -65,6 +68,8 @@ To practice using Git and basic commits, create a separate commit for the follow
 * Commit 2: Create a new folder called Screenshots. Upload 3 screen shots you made previously into this folder (*all these changes should be in one commit*).
 
 * Push your changes to Github.
+
+**Troubleshooting:** If you experience any issues with Git/Github/Rstudio integration, see [here](https://happygitwithr.com/troubleshooting.html) for advice on how to solve your issues.
 
 ## Part 6: Simple program
 
